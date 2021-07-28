@@ -1,4 +1,4 @@
-import {  Router } from "https://deno.land/x/oak/mod.ts";
+import { Router } from "https://deno.land/x/oak/mod.ts";
 
 export const standRouter = new Router();
 standRouter
@@ -7,6 +7,6 @@ standRouter
   })
   .get("/stand/:number", (context) => {
     console.log(context.params);
-    context.response.body = JSON.stringify({ result: 2 });
+    const result = 0 < Number(context.params.number) && Number(context.params.number) < 9 ? Number(context.params.number) : "No such as number";
+    context.response.body = JSON.stringify({ result:  result });
   });
-
